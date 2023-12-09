@@ -465,7 +465,7 @@ void SetRuntimeFeaturesFromCommandLine(const base::CommandLine& command_line) {
       {wrf::EnableTimerThrottlingForBackgroundTabs,
        switches::kDisableBackgroundTimerThrottling, false},
       // End of Stable Features
-      {wrf::EnableAutomationControlled, switches::kEnableAutomation, true},
+      {wrf::EnableAutomationControlled, switches::kEnableAutomation, false},
       {wrf::EnableAutomationControlled, switches::kHeadless, true},
       {wrf::EnableAutomationControlled, switches::kRemoteDebuggingPipe, true},
       {wrf::EnableDatabase, switches::kDisableDatabases, false},
@@ -515,7 +515,7 @@ void SetRuntimeFeaturesFromCommandLine(const base::CommandLine& command_line) {
         command_line.GetSwitchValueASCII(::switches::kRemoteDebuggingPort);
     int port;
     if (base::StringToInt(port_str, &port) && port == 0) {
-      WebRuntimeFeatures::EnableAutomationControlled(true);
+      WebRuntimeFeatures::EnableAutomationControlled(false);
     }
   }
 
